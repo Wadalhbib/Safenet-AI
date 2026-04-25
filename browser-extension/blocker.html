@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SafeNet AI — Scam Detected</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red:    #ff2d2d;
+      --dark:   #0d0d0d;
+      --card:   #161616;
+      --border: rgba(255,255,255,0.08);
+      --muted:  #888;
+    }
+
+    body {
+      background: var(--dark);
+      color: white;
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      overflow-x: hidden;
+    }
+
+    /* Animated background grid */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,45,45,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,45,45,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+
+    /* Pulsing red glow */
+    body::after {
+      content: '';
+      position: fixed;
+      top: -200px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(255,45,45,0.15) 0%, transparent 70%);
+      animation: pulse 3s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
+      50%       { opacity: 1;   transform: translateX(-50%) scale(1.1); }
+    }
+
+    .container {
+      max-width: 640px;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+      animation: fadeInUp 0.5s ease;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Shield icon */
+    .shield {
+      width: 80px; height: 80px;
+      background: rgba(255,45,45,0.15);
+      border: 2px solid rgba(255,45,45,0.4);
+      border-radius: 24px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 36px;
+      margin: 0 auto 24px;
+      animation: shake 0.6s ease 0.5s;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: rotate(0deg); }
+      20%       { transform: rotate(-8deg); }
+      40%       { transform: rotate(8deg); }
+      60%       { transform: rotate(-4deg); }
+      80%       { transform: rotate(4deg); }
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      text-align: center;
+      color: var(--red);
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 32px;
+    }
+
+    .domain-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: rgba(255,45,45,0.1);
+      border: 1px solid rgba(255,45,45,0.3);
+      border-radius: 12px;
+      padding: 10px 20px;
+      margin-bottom: 24px;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      color: #ff8080;
+      word-break: break-all;
+      text-align: center;
+    }
+
+    /* Score meter */
+    .score-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .score-circle {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: conic-gradient(var(--red) calc(var(--pct) * 1%), #2a2a2a 0%);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .score-circle::before {
+      content: '';
+      position: absolute;
+      inset: 8px;
+      background: var(--card);
+      border-radius: 50%;
+    }
+
+    .score-value {
+      position: relative;
+      z-index: 1;
+      font-family: 'Syne', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--red);
+    }
+
+    .score-label { color: var(--muted); font-size: 13px; }
+    .score-label strong { color: white; display: block; font-size: 16px; }
+
+    /* Reasons list */
+    .reasons-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+
+    .reasons-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .reason-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+      color: #ddd;
+      line-height: 1.5;
+    }
+
+    .reason-item:last-child { border-bottom: none; }
+    .reason-dot { color: var(--red); margin-top: 1px; flex-shrink: 0; }
+
+    /* Recommendation box */
+    .recommendation {
+      background: rgba(255,45,45,0.06);
+      border: 1px solid rgba(255,45,45,0.2);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 13px;
+      color: #ffaaaa;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    /* Buttons */
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .btn-safe {
+      background: white;
+      color: #0d0d0d;
+      border: none;
+      border-radius: 12px;
+      padding: 14px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.15s;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .btn-safe:hover { background: #e8e8e8; }
+
+    .btn-proceed {
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 12px;
+      font-size: 13px;
+      cursor: pointer;
+      width: 100%;
+      transition: color 0.15s, border-color 0.15s;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .btn-proceed:hover {
+      color: #ff8080;
+      border-color: rgba(255,45,45,0.4);
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 24px;
+      font-size: 12px;
+      color: #555;
+    }
+
+    .footer img { height: 16px; vertical-align: middle; margin-right: 4px; }
+
+    /* Countdown bar for proceed button */
+    .countdown-bar {
+      height: 3px;
+      background: #222;
+      border-radius: 2px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+
+    .countdown-fill {
+      height: 100%;
+      background: var(--red);
+      width: 100%;
+      animation: countdown 5s linear forwards;
+    }
+
+    @keyframes countdown {
+      from { width: 100%; }
+      to   { width: 0%; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="shield">🛡️</div>
+
+    <h1>Scam Site Blocked</h1>
+    <p class="subtitle" id="subtitle">SafeNet AI has blocked this dangerous website</p>
+
+    <div class="domain-badge">
+      <span>🔗</span>
+      <span id="domain-display">Loading...</span>
+    </div>
+
+    <!-- Risk Score -->
+    <div class="score-section">
+      <div class="score-circle" id="score-circle">
+        <span class="score-value" id="score-value">--</span>
+      </div>
+      <div class="score-label">
+        <strong>HIGH RISK</strong>
+        Risk Score out of 100. This site is almost certainly a scam.
+      </div>
+    </div>
+
+    <!-- Reasons -->
+    <div class="reasons-card">
+      <div class="reasons-title">Why was this blocked?</div>
+      <div id="reasons-list"></div>
+    </div>
+
+    <!-- Recommendation -->
+    <div class="recommendation" id="recommendation"></div>
+
+    <!-- Action buttons -->
+    <div class="btn-group">
+      <button class="btn-safe">
+        ← Go Back to Safety
+      </button>
+      <button class="btn-proceed" id="proceed-btn" disabled>
+        I understand the risk — proceed anyway
+      </button>
+      <div class="countdown-bar"><div class="countdown-fill"></div></div>
+    </div>
+
+    <div class="footer">
+      Protected by <strong>SafeNet AI</strong> · ICYOUTH 2026 · Scan time: <span id="scan-time">--</span>ms
+    </div>
+  </div>
+
+  <script src="blocker.js"></script>
+</body>
+</html>

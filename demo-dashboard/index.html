@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SafeNet AI — Live Demo Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=IBM+Plex+Mono:wght@400;600&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<style>
+/* ── Reset & base ───────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:      #080b14;
+  --surface: #0e1422;
+  --card:    #121926;
+  --border:  rgba(255,255,255,0.06);
+  --cyan:    #00d4ff;
+  --blue:    #1a56ff;
+  --danger:  #ff3b3b;
+  --warn:    #ffaa00;
+  --safe:    #00e676;
+  --purple:  #a855f7;
+  --text:    #f0f4ff;
+  --muted:   #5a6680;
+  --mono:    'IBM Plex Mono', monospace;
+  --sans:    'DM Sans', sans-serif;
+  --display: 'Syne', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── Animated mesh background ──────────────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 10%, rgba(0,212,255,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(26,86,255,0.05) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* ── Grid lines ─────────────────────────────────────────────────────────── */
+body::after {
+  content: '';
+  position: fixed; inset: 0; z-index: 0;
+  background-image:
+    linear-gradient(rgba(0,212,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,212,255,0.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+
+/* ── Layout ─────────────────────────────────────────────────────────────── */
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+/* ── Header ─────────────────────────────────────────────────────────────── */
+header {
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  background: rgba(8,11,20,0.8);
+  position: sticky; top: 0; z-index: 100;
+}
+.header-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 24px; max-width: 1100px; margin: 0 auto;
+}
+.logo {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--display); font-size: 18px; font-weight: 800;
+  color: var(--text); text-decoration: none;
+}
+.logo-badge {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: linear-gradient(135deg, var(--cyan), var(--blue));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; font-weight: 900; color: #000;
+}
+.status-chip {
+  display: flex; align-items: center; gap: 6px;
+  background: rgba(0,230,118,0.08); border: 1px solid rgba(0,230,118,0.2);
+  border-radius: 20px; padding: 5px 12px; font-size: 12px; font-weight: 600;
+  color: var(--safe);
+}
+.status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--safe); animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+
+/* ── Hero ───────────────────────────────────────────────────────────────── */
+.hero {
+  text-align: center; padding: 64px 24px 40px;
+}
+.hero-eyebrow {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 3px;
+  color: var(--cyan); text-transform: uppercase; margin-bottom: 16px;
+  opacity: 0; animation: fadeUp 0.5s ease 0.1s forwards;
+}
+.hero h1 {
+  font-family: var(--display); font-size: clamp(36px, 6vw, 64px);
+  font-weight: 800; line-height: 1.1; letter-spacing: -1px;
+  margin-bottom: 16px;
+  opacity: 0; animation: fadeUp 0.5s ease 0.2s forwards;
+}
+.hero h1 span { color: var(--cyan); }
+.hero p {
+  font-size: 16px; color: var(--muted); max-width: 520px; margin: 0 auto 32px;
+  line-height: 1.7;
+  opacity: 0; animation: fadeUp 0.5s ease 0.3s forwards;
+}
+@keyframes fadeUp { from{opacity:0;transform:translateY(16px);} to{opacity:1;transform:none;} }
+
+/* ── Stats row ──────────────────────────────────────────────────────────── */
+.stats-row {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+  max-width: 600px; margin: 0 auto 48px;
+  opacity: 0; animation: fadeUp 0.5s ease 0.4s forwards;
+}
+.stat-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+  padding: 16px; text-align: center;
+}
+.stat-value { font-family: var(--display); font-size: 28px; font-weight: 800; }
+.stat-label { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: 1px; margin-top: 2px; }
+
+/* ── Scanner ────────────────────────────────────────────────────────────── */
+.scanner-section {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 20px; padding: 32px; margin-bottom: 32px;
+  opacity: 0; animation: fadeUp 0.5s ease 0.5s forwards;
+}
+.scanner-label {
+  font-family: var(--mono); font-size: 10px; color: var(--cyan);
+  letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px;
+}
+.input-row { display: flex; gap: 10px; margin-bottom: 12px; }
+.url-input {
+  flex: 1; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 14px 18px; color: var(--text);
+  font-family: var(--mono); font-size: 13px; outline: none;
+  transition: border-color 0.2s;
+}
+.url-input:focus { border-color: var(--cyan); }
+.url-input::placeholder { color: var(--muted); }
+.scan-btn {
+  background: var(--cyan); color: #000; border: none;
+  border-radius: 12px; padding: 14px 28px; font-family: var(--display);
+  font-size: 14px; font-weight: 800; cursor: pointer; white-space: nowrap;
+  transition: opacity 0.15s, transform 0.1s;
+}
+.scan-btn:hover { opacity: 0.88; }
+.scan-btn:active { transform: scale(0.97); }
+.scan-btn:disabled { opacity: 0.4; cursor: default; }
+
+/* Quick-scan preset buttons */
+.presets { display: flex; flex-wrap: wrap; gap: 8px; }
+.preset-btn {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+  padding: 6px 12px; font-family: var(--mono); font-size: 11px;
+  color: var(--muted); cursor: pointer; transition: all 0.15s;
+}
+.preset-btn:hover { border-color: var(--cyan); color: var(--cyan); }
+.preset-btn.danger-preset:hover { border-color: var(--danger); color: var(--danger); }
+
+/* ── Result panel ───────────────────────────────────────────────────────── */
+.result-panel {
+  border-radius: 20px; padding: 28px; margin-bottom: 32px;
+  display: none; border: 1px solid var(--border);
+  animation: slideIn 0.35s ease;
+}
+.result-panel.show { display: block; }
+.result-panel.HIGH   { background: rgba(255,59,59,0.06);  border-color: rgba(255,59,59,0.25);  }
+.result-panel.MEDIUM { background: rgba(255,170,0,0.06);  border-color: rgba(255,170,0,0.25);  }
+.result-panel.LOW    { background: rgba(0,230,118,0.06);  border-color: rgba(0,230,118,0.25);  }
+
+@keyframes slideIn { from{opacity:0;transform:translateY(-8px);} to{opacity:1;transform:none;} }
+
+.result-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+.result-severity { font-family: var(--display); font-size: 22px; font-weight: 800; }
+.result-severity.HIGH   { color: var(--danger); }
+.result-severity.MEDIUM { color: var(--warn); }
+.result-severity.LOW    { color: var(--safe); }
+
+.score-ring {
+  position: relative; width: 80px; height: 80px; flex-shrink: 0;
+}
+.score-ring svg { transform: rotate(-90deg); }
+.score-ring .track { fill: none; stroke: rgba(255,255,255,0.06); stroke-width: 6; }
+.score-ring .fill  { fill: none; stroke-width: 6; stroke-linecap: round;
+  transition: stroke-dashoffset 0.8s cubic-bezier(0.4,0,0.2,1); }
+.score-center {
+  position: absolute; inset: 0; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+}
+.score-num { font-family: var(--display); font-size: 22px; font-weight: 800; line-height: 1; }
+.score-den { font-family: var(--mono); font-size: 9px; color: var(--muted); }
+
+.result-domain {
+  font-family: var(--mono); font-size: 13px; color: var(--muted); margin-bottom: 16px;
+}
+
+.reasons-grid { display: grid; gap: 8px; margin-bottom: 16px; }
+.reason-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  background: rgba(255,255,255,0.03); border-radius: 10px; padding: 10px 14px;
+}
+.reason-bullet { width: 6px; height: 6px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
+.reason-text { font-size: 13px; color: #ccd; line-height: 1.5; }
+
+.recommendation {
+  border-left: 3px solid; padding: 12px 16px; border-radius: 0 10px 10px 0;
+  font-size: 13px; line-height: 1.6; color: #ccd;
+}
+
+.result-meta {
+  display: flex; gap: 16px; margin-top: 14px;
+  font-family: var(--mono); font-size: 10px; color: var(--muted);
+}
+
+/* ── Two-column layout ──────────────────────────────────────────────────── */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 32px; }
+@media(max-width:720px) { .two-col { grid-template-columns: 1fr; } }
+
+.panel {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 16px; padding: 24px;
+  opacity: 0; animation: fadeUp 0.5s ease 0.6s forwards;
+}
+.panel-title {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 2px;
+  color: var(--cyan); text-transform: uppercase; margin-bottom: 16px;
+}
+
+/* Scam examples list */
+.example-item {
+  display: flex; align-items: center; gap: 10px; padding: 10px 0;
+  border-bottom: 1px solid var(--border); cursor: pointer; transition: opacity 0.15s;
+}
+.example-item:last-child { border-bottom: none; }
+.example-item:hover .example-url { color: var(--cyan); }
+.example-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.example-info { flex: 1; min-width: 0; }
+.example-url { font-family: var(--mono); font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--muted); transition: color 0.15s; }
+.example-label { font-size: 12px; color: var(--text); font-weight: 600; margin-bottom: 2px; }
+.example-badge {
+  font-family: var(--mono); font-size: 9px; font-weight: 600;
+  padding: 3px 7px; border-radius: 6px; flex-shrink: 0;
+}
+
+/* Score history */
+.history-list { display: flex; flex-direction: column; gap: 8px; }
+.history-item {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--surface); border-radius: 10px; padding: 10px 12px;
+}
+.history-domain { flex: 1; font-family: var(--mono); font-size: 11px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.history-score { font-family: var(--display); font-size: 16px; font-weight: 800; width: 36px; text-align: right; }
+
+/* Loading spinner */
+.spinner {
+  display: inline-block; width: 18px; height: 18px; border: 2px solid rgba(0,0,0,0.3);
+  border-top-color: #000; border-radius: 50%; animation: spin 0.7s linear infinite; vertical-align: middle;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Footer ─────────────────────────────────────────────────────────────── */
+footer {
+  border-top: 1px solid var(--border); padding: 24px;
+  text-align: center; font-family: var(--mono); font-size: 11px; color: var(--muted);
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div class="header-inner">
+    <a class="logo" href="#">
+      <div class="logo-badge">S</div>
+      SafeNet AI
+    </a>
+    <div class="status-chip">
+      <span class="status-dot"></span>
+      <span id="api-status">Connecting...</span>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<div class="wrap">
+  <div class="hero">
+    <div class="hero-eyebrow">ICYOUTH 2026 · Cybersecurity Track · Malaysia</div>
+    <h1>Real-Time <span>Scam Detection</span><br>for Malaysians</h1>
+    <p>Paste any URL below. The AI engine scores it in milliseconds using blacklist lookup, NLP keyword scanning in English + Bahasa Malaysia, TLD analysis, and typosquatting detection.</p>
+  </div>
+
+  <!-- Live stats -->
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-value" id="stat-scans" style="color:var(--cyan)">--</div>
+      <div class="stat-label">SCANS / 24H</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="stat-blocked" style="color:var(--danger)">--</div>
+      <div class="stat-label">BLOCKED TODAY</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="stat-bl" style="color:var(--warn)">--</div>
+      <div class="stat-label">BLACKLISTED</div>
+    </div>
+  </div>
+
+  <!-- Scanner -->
+  <div class="scanner-section">
+    <div class="scanner-label">// live url scanner</div>
+    <div class="input-row">
+      <input
+        type="text"
+        class="url-input"
+        id="url-input"
+        placeholder="https://lhdn-refund.xyz/claim?tindakan=segera"
+        autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false"
+      />
+      <button class="scan-btn" id="scan-btn" onclick="doScan()">
+        Scan
+      </button>
+    </div>
+    <div class="presets">
+      <span style="font-family:var(--mono);font-size:10px;color:var(--muted);align-self:center;">Try:</span>
+      <!-- High risk presets -->
+      <button class="preset-btn danger-preset" onclick="preset('http://lhdn-refund.xyz/claim')">lhdn-refund.xyz</button>
+      <button class="preset-btn danger-preset" onclick="preset('https://kwsp-withdrawal.click')">kwsp-withdrawal.click</button>
+      <button class="preset-btn danger-preset" onclick="preset('https://maybank-secure.cf/login')">maybank-secure.cf</button>
+      <button class="preset-btn danger-preset" onclick="preset('http://shopee-lucky-draw.ga')">shopee-lucky-draw.ga</button>
+      <button class="preset-btn danger-preset" onclick="preset('https://poslaju-track.ml/pay')">poslaju-track.ml</button>
+      <!-- Safe preset -->
+      <button class="preset-btn" onclick="preset('https://hasil.gov.my')">hasil.gov.my ✓</button>
+      <button class="preset-btn" onclick="preset('https://google.com')">google.com ✓</button>
+    </div>
+  </div>
+
+  <!-- Result panel -->
+  <div class="result-panel" id="result-panel">
+    <div class="result-header">
+      <div>
+        <div class="result-severity" id="result-severity"></div>
+        <div class="result-domain" id="result-domain"></div>
+      </div>
+      <div class="score-ring">
+        <svg viewBox="0 0 80 80" width="80" height="80">
+          <circle class="track" cx="40" cy="40" r="33"/>
+          <circle class="fill" id="score-arc" cx="40" cy="40" r="33"
+            stroke-dasharray="207.3" stroke-dashoffset="207.3"/>
+        </svg>
+        <div class="score-center">
+          <span class="score-num" id="score-num">0</span>
+          <span class="score-den">/100</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="reasons-grid" id="reasons-list"></div>
+
+    <div class="recommendation" id="recommendation"></div>
+
+    <div class="result-meta">
+      <span>scan: <strong id="meta-ms">--</strong>ms</span>
+      <span>domain: <strong id="meta-domain">--</strong></span>
+      <span id="meta-guardian"></span>
+    </div>
+  </div>
+
+  <!-- Two-column panels -->
+  <div class="two-col">
+
+    <!-- Malaysian scam examples -->
+    <div class="panel">
+      <div class="panel-title">// malaysian scam examples</div>
+      <div id="examples-list">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+
+    <!-- Scan history -->
+    <div class="panel">
+      <div class="panel-title">// scan history (this session)</div>
+      <div class="history-list" id="history-list">
+        <div style="color:var(--muted);font-size:12px;font-family:var(--mono);">No scans yet — try a URL above.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  SafeNet AI &nbsp;·&nbsp; ICYOUTH 2026 &nbsp;·&nbsp; Backend: <span id="footer-status" style="color:var(--safe)">localhost:8080</span>
+</footer>
+
+<script>
+const API = 'http://localhost:8080/v1';
+const history = [];
+
+// ── Load stats & status ────────────────────────────────────────────────────
+async function loadStats() {
+  try {
+    const r = await fetch(`${API}/stats`);
+    const d = await r.json();
+    document.getElementById('stat-scans').textContent   = d.totalScans24h   ?? '--';
+    document.getElementById('stat-blocked').textContent = d.highRiskBlocked24h ?? '--';
+    document.getElementById('stat-bl').textContent      = d.blacklistSize    ?? '--';
+    document.getElementById('api-status').textContent   = 'API Online';
+    document.getElementById('footer-status').style.color = 'var(--safe)';
+  } catch {
+    document.getElementById('api-status').textContent   = 'API Offline';
+    document.getElementById('api-status').style.color   = 'var(--danger)';
+    document.querySelector('.status-dot').style.background = 'var(--danger)';
+    document.getElementById('footer-status').style.color = 'var(--danger)';
+    document.getElementById('footer-status').textContent = 'localhost:8080 — start backend!';
+  }
+}
+
+// ── Preset scam examples ───────────────────────────────────────────────────
+const EXAMPLES = [
+  { label: 'LHDN Tax Refund Scam',   url: 'http://lhdn-refund.xyz/claim',     cat: 'LHDN Clone',      sev: 'HIGH'   },
+  { label: 'KWSP Withdrawal Scam',   url: 'https://kwsp-withdrawal.click',    cat: 'KWSP Clone',      sev: 'HIGH'   },
+  { label: 'Fake Maybank Login',      url: 'https://maybank-secure.cf/login',  cat: 'Banking Phish',   sev: 'HIGH'   },
+  { label: 'Shopee Lucky Draw',       url: 'http://shopee-lucky-draw.ga',      cat: 'E-Commerce Scam', sev: 'HIGH'   },
+  { label: 'Pos Laju Parcel Scam',   url: 'https://poslaju-track.ml/pay',     cat: 'Pos Malaysia',    sev: 'HIGH'   },
+  { label: 'Fake Hasil Portal',       url: 'https://hasil.gov.my',             cat: 'Legit Domain',    sev: 'LOW'    },
+];
+
+function renderExamples() {
+  const el = document.getElementById('examples-list');
+  const sevColor = { HIGH: 'var(--danger)', MEDIUM: 'var(--warn)', LOW: 'var(--safe)' };
+  el.innerHTML = EXAMPLES.map(e => `
+    <div class="example-item" onclick="preset('${e.url}')">
+      <div class="example-dot" style="background:${sevColor[e.sev]}"></div>
+      <div class="example-info">
+        <div class="example-label">${e.label}</div>
+        <div class="example-url">${e.url}</div>
+      </div>
+      <div class="example-badge" style="background:${sevColor[e.sev]}22;color:${sevColor[e.sev]};border:1px solid ${sevColor[e.sev]}44">
+        ${e.sev}
+      </div>
+    </div>
+  `).join('');
+}
+
+// ── Preset ────────────────────────────────────────────────────────────────
+function preset(url) {
+  document.getElementById('url-input').value = url;
+  doScan();
+}
+
+// ── Main scan ─────────────────────────────────────────────────────────────
+async function doScan() {
+  const input = document.getElementById('url-input');
+  const btn   = document.getElementById('scan-btn');
+  const url   = input.value.trim();
+  if (!url) return;
+
+  btn.innerHTML = '<span class="spinner"></span>';
+  btn.disabled = true;
+
+  try {
+    const res = await fetch(`${API}/scan`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ url, userId: 'demo_dashboard', deviceType: 'DEMO' }),
+    });
+    if (!res.ok) throw new Error('API error ' + res.status);
+    const data = await res.json();
+    renderResult(data);
+    addHistory(data);
+    loadStats(); // refresh stats
+  } catch (e) {
+    renderOfflineError(url);
+  } finally {
+    btn.textContent = 'Scan';
+    btn.disabled = false;
+  }
+}
+
+// ── Render result ──────────────────────────────────────────────────────────
+function renderResult(data) {
+  const panel = document.getElementById('result-panel');
+  const sev   = data.severity || 'LOW';
+  const score = data.riskScore || 0;
+  const col   = { HIGH: 'var(--danger)', MEDIUM: 'var(--warn)', LOW: 'var(--safe)' }[sev];
+
+  panel.className = `result-panel show ${sev}`;
+
+  // Severity label
+  const icon = { HIGH: '⛔', MEDIUM: '⚠️', LOW: '✅' }[sev] || '';
+  document.getElementById('result-severity').textContent = `${icon} ${sev} RISK`;
+  document.getElementById('result-severity').className   = `result-severity ${sev}`;
+  document.getElementById('result-domain').textContent   = data.scannedDomain || '';
+
+  // Score ring animation
+  document.getElementById('score-num').textContent = score;
+  document.getElementById('score-num').style.color = col;
+  const arc = document.getElementById('score-arc');
+  arc.style.stroke = col;
+  const circ = 2 * Math.PI * 33; // 207.3
+  setTimeout(() => {
+    arc.style.strokeDashoffset = circ - (circ * score / 100);
+  }, 50);
+
+  // Reasons
+  const rl = document.getElementById('reasons-list');
+  rl.innerHTML = (data.reasons || []).map(r => `
+    <div class="reason-item">
+      <div class="reason-bullet" style="background:${col}"></div>
+      <div class="reason-text">${r}</div>
+    </div>
+  `).join('');
+
+  // Recommendation
+  const rec = document.getElementById('recommendation');
+  rec.textContent = data.recommendation || '';
+  rec.style.borderLeftColor = col;
+  rec.style.background = col.replace(')', ',0.05)').replace('var(', 'rgba(') + ')';
+
+  // Meta
+  document.getElementById('meta-ms').textContent     = data.scanDurationMs ?? '--';
+  document.getElementById('meta-domain').textContent = data.scannedDomain  || '--';
+  document.getElementById('meta-guardian').textContent =
+    data.guardianAlerted ? '🔔 Guardian alerted' : '';
+
+  panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function renderOfflineError(url) {
+  const panel = document.getElementById('result-panel');
+  panel.className = 'result-panel show MEDIUM';
+  document.getElementById('result-severity').textContent = '⚠️ Backend Offline';
+  document.getElementById('result-severity').className   = 'result-severity MEDIUM';
+  document.getElementById('result-domain').textContent   = url;
+  document.getElementById('reasons-list').innerHTML = `
+    <div class="reason-item">
+      <div class="reason-bullet" style="background:var(--warn)"></div>
+      <div class="reason-text">Could not reach SafeNet AI backend at localhost:8080.<br>
+      Start it with: <code style="font-family:var(--mono);color:var(--cyan)">cd backend && mvn spring-boot:run</code></div>
+    </div>
+  `;
+  document.getElementById('recommendation').textContent = '';
+  document.getElementById('score-num').textContent = '?';
+}
+
+// ── History ────────────────────────────────────────────────────────────────
+function addHistory(data) {
+  const sev = data.severity || 'LOW';
+  const col = { HIGH: 'var(--danger)', MEDIUM: 'var(--warn)', LOW: 'var(--safe)' }[sev];
+  history.unshift({ domain: data.scannedDomain, score: data.riskScore, sev, col });
+  if (history.length > 10) history.pop();
+
+  const el = document.getElementById('history-list');
+  el.innerHTML = history.map(h => `
+    <div class="history-item">
+      <div class="example-dot" style="background:${h.col}"></div>
+      <div class="history-domain">${h.domain}</div>
+      <div class="history-score" style="color:${h.col}">${h.score}</div>
+    </div>
+  `).join('');
+}
+
+// ── Keyboard shortcut: Enter to scan ──────────────────────────────────────
+document.getElementById('url-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') doScan();
+});
+
+// ── Init ──────────────────────────────────────────────────────────────────
+renderExamples();
+loadStats();
+setInterval(loadStats, 30000); // Refresh stats every 30s
+</script>
+</body>
+</html>

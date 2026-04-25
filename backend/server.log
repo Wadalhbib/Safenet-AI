@@ -1,0 +1,276 @@
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-----------------------< [0;36mcom.safenet:safenet-ai[0;1m >-----------------------[m
+[[1;34mINFO[m] [1mBuilding SafeNet AI Backend 1.0.0[m
+[[1;34mINFO[m]   from pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m>>> [0;32mspring-boot:3.2.0:run[m [1m(default-cli)[0;1m > [0;1mtest-compile[m @ [36msafenet-ai[0;1m >>>[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.3.1:resources[m [1m(default-resources)[m @ [36msafenet-ai[0;1m ---[m
+[[1;34mINFO[m] Copying 1 resource from src/main/resources to target/classes
+[[1;34mINFO[m] Copying 1 resource from src/main/resources to target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.11.0:compile[m [1m(default-compile)[m @ [36msafenet-ai[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.3.1:testResources[m [1m(default-testResources)[m @ [36msafenet-ai[0;1m ---[m
+[[1;34mINFO[m] skip non existing resourceDirectory /home/wadalhbib/Downloads/safenet-ai/backend/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.11.0:testCompile[m [1m(default-testCompile)[m @ [36msafenet-ai[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module! :input tree
+[[1;34mINFO[m] Compiling 2 source files with javac [debug release 21] to target/test-classes
+[[1;34mINFO[m] Annotation processing is enabled because one or more processors were found
+  on the class path. A future release of javac may disable annotation processing
+  unless at least one processor is specified by name (-processor), or a search
+  path is specified (--processor-path, --processor-module-path), or annotation
+  processing is enabled explicitly (-proc:only, -proc:full).
+  Use -Xlint:-options to suppress this message.
+  Use -proc:none to disable annotation processing.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m<<< [0;32mspring-boot:3.2.0:run[m [1m(default-cli)[0;1m < [0;1mtest-compile[m @ [36msafenet-ai[0;1m <<<[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mspring-boot:3.2.0:run[m [1m(default-cli)[m @ [36msafenet-ai[0;1m ---[m
+[[1;34mINFO[m] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.0)
+
+2026-04-24T10:41:22.399+08:00  INFO 56099 --- [           main] com.safenet.SafeNetApplication           : Starting SafeNetApplication using Java 21.0.11-ea with PID 56099 (/home/wadalhbib/Downloads/safenet-ai/backend/target/classes started by wadalhbib in /home/wadalhbib/Downloads/safenet-ai/backend)
+2026-04-24T10:41:22.402+08:00  INFO 56099 --- [           main] com.safenet.SafeNetApplication           : No active profile set, falling back to 1 default profile: "default"
+2026-04-24T10:41:23.322+08:00  INFO 56099 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-24T10:41:23.398+08:00  INFO 56099 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 66 ms. Found 3 JPA repository interfaces.
+2026-04-24T10:41:24.293+08:00  INFO 56099 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-04-24T10:41:24.302+08:00  INFO 56099 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-24T10:41:24.302+08:00  INFO 56099 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-04-24T10:41:24.348+08:00  INFO 56099 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-24T10:41:24.349+08:00  INFO 56099 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1899 ms
+2026-04-24T10:41:24.684+08:00  INFO 56099 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-24T10:41:24.729+08:00  INFO 56099 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2026-04-24T10:41:24.758+08:00  INFO 56099 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-24T10:41:24.945+08:00  INFO 56099 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-24T10:41:24.968+08:00  INFO 56099 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-24T10:41:25.111+08:00  INFO 56099 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@965bcbc
+2026-04-24T10:41:25.113+08:00  INFO 56099 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-24T10:41:25.908+08:00  INFO 56099 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-24T10:41:25.952+08:00  INFO 56099 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-24T10:41:26.394+08:00  INFO 56099 --- [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-24T10:41:27.044+08:00  INFO 56099 --- [           main] com.safenet.service.ScanService          : Blacklist cache loaded: 28 domains
+2026-04-24T10:41:27.128+08:00  WARN 56099 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-24T10:41:27.930+08:00  INFO 56099 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2026-04-24T10:41:28.003+08:00  INFO 56099 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2026-04-24T10:41:28.016+08:00  INFO 56099 --- [           main] com.safenet.SafeNetApplication           : Started SafeNetApplication in 6.052 seconds (process running for 6.361)
+2026-04-24T10:41:28.029+08:00  INFO 56099 --- [   scheduling-1] com.safenet.service.ScanService          : Blacklist cache loaded: 28 domains
+
+╔═══════════════════════════════════════════╗
+║       SafeNet AI is running! 🛡️           ║
+║   POST http://localhost:8080/v1/scan       ║
+║   GET  http://localhost:8080/v1/health     ║
+╚═══════════════════════════════════════════╝
+
+2026-04-24T10:41:31.187+08:00  INFO 56099 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-24T10:43:01.085+08:00  INFO 56099 --- [nio-8080-exec-4] com.safenet.service.ScanService          : Scanning: lhdn-refund.xyz | User: ext_aqth85l2tsq | Device: EXTENSION
+2026-04-24T10:43:17.332+08:00  INFO 56099 --- [nio-8080-exec-6] com.safenet.service.ScanService          : Scanning: ntp.msn.com | User: ext_aqth85l2tsq | Device: EXTENSION
+2026-04-24T10:46:14.279+08:00  INFO 56099 --- [nio-8080-exec-1] com.safenet.service.ScanService          : Scanning: antigravity.google | User: ext_aqth85l2tsq | Device: EXTENSION
+2026-04-24T10:46:20.881+08:00  INFO 56099 --- [nio-8080-exec-3] com.safenet.service.ScanService          : Scanning: docs.google.com | User: ext_aqth85l2tsq | Device: EXTENSION
+2026-04-24T10:46:28.035+08:00  INFO 56099 --- [   scheduling-1] com.safenet.service.ScanService          : Blacklist cache loaded: 28 domains
+2026-04-24T10:46:33.265+08:00  INFO 56099 --- [nio-8080-exec-6] com.safenet.service.ScanService          : Scanning: upm.edu.my | User: ext_aqth85l2tsq | Device: EXTENSION
+2026-04-24T10:46:51.066+08:00  INFO 56099 --- [nio-8080-exec-8] com.safenet.service.ScanService          : Scanning: ntp.msn.com | User: ext_aqth85l2tsq | Device: EXTENSION
+2026-04-24T10:46:56.737+08:00  INFO 56099 --- [nio-8080-exec-9] com.safenet.service.ScanService          : Scanning: upm.edu.my | User: ext_aqth85l2tsq | Device: EXTENSION
+2026-04-24T10:46:59.709+08:00  INFO 56099 --- [io-8080-exec-10] com.safenet.service.ScanService          : Scanning: upm.edu.my | User: ext_aqth85l2tsq | Device: EXTENSION
+2026-04-24T10:47:11.121+08:00  INFO 56099 --- [nio-8080-exec-1] com.safenet.service.ScanService          : Scanning: lhdn-refund.xyz | User: ext_aqth85l2tsq | Device: EXTENSION
+2026-04-24T10:47:26.087+08:00  INFO 56099 --- [nio-8080-exec-2] com.safenet.service.ScanService          : Scanning: lhdn-refund.xyz | User: ext_aqth85l2tsq | Device: EXTENSION
+2026-04-24T10:47:26.107+08:00  INFO 56099 --- [nio-8080-exec-2] com.safenet.service.FamilyAlertService   : No guardian linked for user: ext_aqth85l2tsq
+2026-04-24T10:47:48.383+08:00  INFO 56099 --- [nio-8080-exec-4] com.safenet.service.ScanService          : Scanning: lhdn-refund.xyz | User: ext_aqth85l2tsq | Device: EXTENSION
+2026-04-24T10:47:48.404+08:00  INFO 56099 --- [nio-8080-exec-4] com.safenet.service.FamilyAlertService   : No guardian linked for user: ext_aqth85l2tsq
+2026-04-24T10:48:10.821+08:00  INFO 56099 --- [nio-8080-exec-9] com.safenet.service.ScanService          : Scanning: file | User: ext_aqth85l2tsq | Device: EXTENSION
+2026-04-24T10:48:28.485+08:00  INFO 56099 --- [nio-8080-exec-1] com.safenet.service.ScanService          : Scanning: shopee-lucky-draw.ga | User: demo_dashboard | Device: DEMO
+2026-04-24T10:48:36.458+08:00  INFO 56099 --- [nio-8080-exec-4] com.safenet.service.ScanService          : Scanning: shopee-lucky-draw.ga | User: ext_aqth85l2tsq | Device: EXTENSION
+2026-04-24T10:48:48.157+08:00  INFO 56099 --- [nio-8080-exec-7] com.safenet.service.ScanService          : Scanning: shopee-lucky-draw.ga | User: ext_aqth85l2tsq | Device: EXTENSION
+2026-04-24T10:49:11.146+08:00  INFO 56099 --- [nio-8080-exec-1] com.safenet.service.ScanService          : Scanning: upm.edu.my | User: ext_aqth85l2tsq | Device: EXTENSION
+2026-04-24T10:51:28.043+08:00  INFO 56099 --- [   scheduling-1] com.safenet.service.ScanService          : Blacklist cache loaded: 28 domains
+2026-04-24T10:54:29.897+08:00  INFO 56099 --- [nio-8080-exec-5] com.safenet.service.ScanService          : Scanning: facebook.com | User: mobile_user | Device: MOBILE
+2026-04-24T10:56:15.748+08:00  INFO 56099 --- [nio-8080-exec-2] com.safenet.service.FamilyAlertService   : Guardian link created: user_test → guardian_test
+2026-04-24T10:56:15.767+08:00  INFO 56099 --- [nio-8080-exec-3] com.safenet.service.ScanService          : Scanning: lhdn-refund.xyz | User: user_test | Device: EXTENSION
+2026-04-24T10:56:15.780+08:00  WARN 56099 --- [nio-8080-exec-3] com.safenet.service.FamilyAlertService   : ⚠️  Firebase not configured. DEMO MODE: Would have sent alert to token: FAKE_FCM_T...
+2026-04-24T10:56:15.781+08:00  INFO 56099 --- [nio-8080-exec-3] com.safenet.service.FamilyAlertService   : 📱 Alert content — Title: 🚨 SafeNet Alert — Test Parent is in danger! | Domain: lhdn-refund.xyz | Score: 100
+2026-04-24T10:56:28.052+08:00  INFO 56099 --- [   scheduling-1] com.safenet.service.ScanService          : Blacklist cache loaded: 28 domains
+2026-04-24T11:00:41.614+08:00  INFO 56099 --- [nio-8080-exec-3] com.safenet.service.ScanService          : Scanning: ump.edu.my | User: mobile_user | Device: MOBILE
+2026-04-24T11:00:51.827+08:00  INFO 56099 --- [nio-8080-exec-4] com.safenet.service.ScanService          : Scanning: ump.edu.my | User: mobile_user | Device: MOBILE
+2026-04-24T11:00:52.979+08:00  INFO 56099 --- [nio-8080-exec-5] com.safenet.service.ScanService          : Scanning: ump.edu.my | User: mobile_user | Device: MOBILE
+2026-04-24T11:00:55.335+08:00  INFO 56099 --- [nio-8080-exec-6] com.safenet.service.ScanService          : Scanning: ump.edu.my | User: mobile_user | Device: MOBILE
+2026-04-24T11:01:28.059+08:00  INFO 56099 --- [   scheduling-1] com.safenet.service.ScanService          : Blacklist cache loaded: 28 domains
+2026-04-24T11:01:43.380+08:00  INFO 56099 --- [nio-8080-exec-9] com.safenet.service.FamilyAlertService   : Guardian link created: user_alhbib → guardian_1776999695370
+2026-04-24T11:03:25.711+08:00  INFO 56099 --- [nio-8080-exec-6] com.safenet.service.FamilyAlertService   : Guardian link created: user_m → guardian_1776999801218
+2026-04-24T11:06:28.063+08:00  INFO 56099 --- [   scheduling-1] com.safenet.service.ScanService          : Blacklist cache loaded: 28 domains
+2026-04-24T11:09:32.623+08:00  WARN 56099 --- [nio-8080-exec-8] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 19, SQLState: null
+2026-04-24T11:09:32.623+08:00 ERROR 56099 --- [nio-8080-exec-8] o.h.engine.jdbc.spi.SqlExceptionHelper   : [SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: guardian_links.user_id)
+2026-04-24T11:09:32.634+08:00 ERROR 56099 --- [nio-8080-exec-8] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.orm.jpa.JpaSystemException: could not execute statement [[SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: guardian_links.user_id)] [insert into guardian_links (active,alert_threshold,guardian_display_name,guardian_fcm_token,guardian_id,linked_at,user_display_name,user_fcm_token,user_id) values (?,?,?,?,?,?,?,?,?)]] with root cause
+
+org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: guardian_links.user_id)
+	at org.sqlite.core.DB.newSQLException(DB.java:1179) ~[sqlite-jdbc-3.45.1.0.jar:na]
+	at org.sqlite.core.DB.newSQLException(DB.java:1190) ~[sqlite-jdbc-3.45.1.0.jar:na]
+	at org.sqlite.core.DB.execute(DB.java:985) ~[sqlite-jdbc-3.45.1.0.jar:na]
+	at org.sqlite.core.DB.executeUpdate(DB.java:1054) ~[sqlite-jdbc-3.45.1.0.jar:na]
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.lambda$executeLargeUpdate$2(JDBC3PreparedStatement.java:129) ~[sqlite-jdbc-3.45.1.0.jar:na]
+	at org.sqlite.jdbc3.JDBC3Statement.withConnectionTimeout(JDBC3Statement.java:454) ~[sqlite-jdbc-3.45.1.0.jar:na]
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.executeLargeUpdate(JDBC3PreparedStatement.java:124) ~[sqlite-jdbc-3.45.1.0.jar:na]
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.executeUpdate(JDBC3PreparedStatement.java:105) ~[sqlite-jdbc-3.45.1.0.jar:na]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:na]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:280) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performInsert(GetGeneratedKeysDelegate.java:107) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorPostInsertSingleTable.execute(MutationExecutorPostInsertSingleTable.java:100) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.doStaticInserts(InsertCoordinator.java:171) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.coordinateInsert(InsertCoordinator.java:112) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2860) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:81) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:667) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:290) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:271) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:321) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:386) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:300) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:219) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:134) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:175) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:93) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:77) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:54) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:766) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:750) ~[hibernate-core-6.3.1.Final.jar:6.3.1.Final]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:360) ~[spring-orm-6.1.1.jar:6.1.1]
+	at jdk.proxy2/jdk.proxy2.$Proxy131.persist(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:311) ~[spring-orm-6.1.1.jar:6.1.1]
+	at jdk.proxy2/jdk.proxy2.$Proxy131.persist(Unknown Source) ~[na:na]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:618) ~[spring-data-jpa-3.2.0.jar:3.2.0]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:352) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:277) ~[spring-data-commons-3.2.0.jar:3.2.0]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170) ~[spring-data-commons-3.2.0.jar:3.2.0]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158) ~[spring-data-commons-3.2.0.jar:3.2.0]
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516) ~[spring-data-commons-3.2.0.jar:3.2.0]
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285) ~[spring-data-commons-3.2.0.jar:3.2.0]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628) ~[spring-data-commons-3.2.0.jar:3.2.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:168) ~[spring-data-commons-3.2.0.jar:3.2.0]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:143) ~[spring-data-commons-3.2.0.jar:3.2.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70) ~[spring-data-commons-3.2.0.jar:3.2.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-6.1.1.jar:6.1.1]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:385) ~[spring-tx-6.1.1.jar:6.1.1]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.1.jar:6.1.1]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-6.1.1.jar:6.1.1]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:164) ~[spring-data-jpa-3.2.0.jar:3.2.0]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:249) ~[spring-aop-6.1.1.jar:6.1.1]
+	at jdk.proxy2/jdk.proxy2.$Proxy138.save(Unknown Source) ~[na:na]
+	at com.safenet.service.FamilyAlertService.linkGuardian(FamilyAlertService.java:144) ~[classes/:na]
+	at com.safenet.controller.ScanController.linkGuardian(ScanController.java:82) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:254) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:182) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.16.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.16.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2026-04-24T11:10:04.080+08:00  INFO 56099 --- [nio-8080-exec-9] com.safenet.service.ScanService          : Scanning: 1334.com | User: mobile_user | Device: MOBILE
+2026-04-24T11:10:36.155+08:00  INFO 56099 --- [nio-8080-exec-4] com.safenet.service.ScanService          : Scanning: faceebook.com | User: mobile_user | Device: MOBILE
+2026-04-24T11:10:50.286+08:00  INFO 56099 --- [nio-8080-exec-5] com.safenet.service.ScanService          : Scanning: faceebook | User: mobile_user | Device: MOBILE
+2026-04-24T11:11:08.000+08:00  INFO 56099 --- [nio-8080-exec-8] com.safenet.service.ScanService          : Scanning: lhdn-refund.xyz | User: demo_dashboard | Device: DEMO
+2026-04-24T11:11:09.356+08:00  INFO 56099 --- [nio-8080-exec-1] com.safenet.service.ScanService          : Scanning: lhdn-refund.xyz | User: demo_dashboard | Device: DEMO
+2026-04-24T11:11:10.442+08:00  INFO 56099 --- [nio-8080-exec-5] com.safenet.service.ScanService          : Scanning: lhdn-refund.xyz | User: demo_dashboard | Device: DEMO
+2026-04-24T11:11:28.069+08:00  INFO 56099 --- [   scheduling-1] com.safenet.service.ScanService          : Blacklist cache loaded: 28 domains
+2026-04-24T11:11:31.149+08:00  INFO 56099 --- [nio-8080-exec-7] com.safenet.service.ScanService          : Scanning: idhb.refund.xyz | User: mobile_user | Device: MOBILE
+2026-04-24T11:11:40.770+08:00  INFO 56099 --- [nio-8080-exec-9] com.safenet.service.ScanService          : Scanning: idhb-refund.xyz | User: mobile_user | Device: MOBILE
+2026-04-24T11:11:59.343+08:00  INFO 56099 --- [io-8080-exec-10] com.safenet.service.ScanService          : Scanning: idhb-refund.xyz | User: mobile_user | Device: MOBILE
+2026-04-24T11:16:28.073+08:00  INFO 56099 --- [   scheduling-1] com.safenet.service.ScanService          : Blacklist cache loaded: 28 domains
+2026-04-24T11:17:25.854+08:00  INFO 56099 --- [io-8080-exec-10] com.safenet.service.ScanService          : Scanning: localhost | User: ext_aqth85l2tsq | Device: EXTENSION
+2026-04-24T11:17:42.702+08:00  INFO 56099 --- [nio-8080-exec-1] com.safenet.service.ScanService          : Scanning: ntp.msn.com | User: ext_aqth85l2tsq | Device: EXTENSION
+2026-04-24T11:19:45.469+08:00  INFO 56099 --- [nio-8080-exec-3] com.safenet.service.ScanService          : Scanning: localhost | User: ext_aqth85l2tsq | Device: EXTENSION
+2026-04-24T11:21:28.086+08:00  INFO 56099 --- [   scheduling-1] com.safenet.service.ScanService          : Blacklist cache loaded: 28 domains
+2026-04-24T11:26:28.090+08:00  INFO 56099 --- [   scheduling-1] com.safenet.service.ScanService          : Blacklist cache loaded: 28 domains
+2026-04-24T11:31:28.149+08:00  INFO 56099 --- [   scheduling-1] com.safenet.service.ScanService          : Blacklist cache loaded: 28 domains
+2026-04-24T11:36:28.164+08:00  INFO 56099 --- [   scheduling-1] com.safenet.service.ScanService          : Blacklist cache loaded: 28 domains
+2026-04-24T11:41:28.178+08:00  INFO 56099 --- [   scheduling-1] com.safenet.service.ScanService          : Blacklist cache loaded: 28 domains
+2026-04-24T11:46:28.190+08:00  INFO 56099 --- [   scheduling-1] com.safenet.service.ScanService          : Blacklist cache loaded: 28 domains
+2026-04-24T11:51:28.204+08:00  INFO 56099 --- [   scheduling-1] com.safenet.service.ScanService          : Blacklist cache loaded: 28 domains
+2026-04-24T11:56:28.223+08:00  INFO 56099 --- [   scheduling-1] com.safenet.service.ScanService          : Blacklist cache loaded: 28 domains
+2026-04-24T12:01:28.250+08:00  INFO 56099 --- [   scheduling-1] com.safenet.service.ScanService          : Blacklist cache loaded: 28 domains
+2026-04-24T12:06:28.266+08:00  INFO 56099 --- [   scheduling-1] com.safenet.service.ScanService          : Blacklist cache loaded: 28 domains
+2026-04-24T12:11:28.278+08:00  INFO 56099 --- [   scheduling-1] com.safenet.service.ScanService          : Blacklist cache loaded: 28 domains
+2026-04-24T12:16:28.290+08:00  INFO 56099 --- [   scheduling-1] com.safenet.service.ScanService          : Blacklist cache loaded: 28 domains
+2026-04-24T12:21:28.303+08:00  INFO 56099 --- [   scheduling-1] com.safenet.service.ScanService          : Blacklist cache loaded: 28 domains
+2026-04-24T12:26:28.315+08:00  INFO 56099 --- [   scheduling-1] com.safenet.service.ScanService          : Blacklist cache loaded: 28 domains
+2026-04-24T12:31:28.321+08:00  INFO 56099 --- [   scheduling-1] com.safenet.service.ScanService          : Blacklist cache loaded: 28 domains
+2026-04-24T12:36:28.338+08:00  INFO 56099 --- [   scheduling-1] com.safenet.service.ScanService          : Blacklist cache loaded: 28 domains
+2026-04-24T12:41:28.351+08:00  INFO 56099 --- [   scheduling-1] com.safenet.service.ScanService          : Blacklist cache loaded: 28 domains
+2026-04-24T12:46:28.368+08:00  INFO 56099 --- [   scheduling-1] com.safenet.service.ScanService          : Blacklist cache loaded: 28 domains
+2026-04-24T12:51:28.383+08:00  INFO 56099 --- [   scheduling-1] com.safenet.service.ScanService          : Blacklist cache loaded: 28 domains
+2026-04-24T12:56:28.398+08:00  INFO 56099 --- [   scheduling-1] com.safenet.service.ScanService          : Blacklist cache loaded: 28 domains
+2026-04-24T12:58:25.208+08:00  INFO 56099 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-24T12:58:25.221+08:00  INFO 56099 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-04-24T12:58:25.234+08:00  INFO 56099 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

@@ -1,0 +1,25 @@
+{
+  "expo": {
+    "name": "SafeNet AI",
+    "slug": "safenet-ai",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#0d0d16"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.safenet.ai"
+    },
+    "android": {
+      "package": "com.safenet.ai",
+      "adaptiveIcon": {
+        "backgroundColor": "#0d0d16"
+      }
+    },
+    "scheme": "safenetai"
+  }
+}

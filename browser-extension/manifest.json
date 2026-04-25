@@ -1,0 +1,53 @@
+{
+  "manifest_version": 3,
+  "name": "SafeNet AI — Malaysian Scam Detector",
+  "version": "1.0.0",
+  "description": "Real-time protection against Malaysian online scams. Powered by AI.",
+  "icons": {
+    "16":  "icons/icon16.png",
+    "48":  "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+
+  "permissions": [
+    "webNavigation",
+    "tabs",
+    "storage",
+    "contextMenus",
+    "notifications",
+    "declarativeNetRequest"
+  ],
+
+  "host_permissions": [
+    "<all_urls>"
+  ],
+
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+    },
+    "default_title": "SafeNet AI"
+  },
+
+  "web_accessible_resources": [
+    {
+      "resources": ["blocker.html", "icons/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
