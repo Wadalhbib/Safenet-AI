@@ -1,6 +1,8 @@
 # 🛡️ SafeNet AI
 ### Malaysian Online Scam Detection — ICYOUTH 2026 Hackathon
 
+**Live Demo Dashboard:** [https://Wadalhbib.github.io/Safenet-AI/](https://Wadalhbib.github.io/Safenet-AI/)
+
 Real-time, AI-powered protection against online scams targeting Malaysians.
 Covers browsers, mobile, and families — with bilingual support (English + Bahasa Malaysia).
 
